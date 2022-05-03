@@ -1,0 +1,42 @@
+<html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+<style>
+    table,th,td
+    {
+    border:1px solid black;
+    }
+</style>
+</head>
+<body>
+<h1>Your Epassport Details</h1>
+<table>
+    <thead>
+    <tr>
+        <th>FirstName</th>
+        <th>LastName</th>
+        <th>DateOfBirth</th>
+        <th>Gender</th>
+        <th>State</th>
+        <th>City</th>
+        <th>PanNumber</th>
+        <th>MobileNumber</th>
+        <th>Email</th>
+    </tr>
+    <tbody>
+       <tr th:each="epassport:${List_Of_EpassportDetails}">
+           <td th:text="${epassport.firstName}"></td>
+           <td th:text="${epassport.lastName}"></td>
+           <td th:text="${epassport.date_of_birth}"></td>
+           <td th:text="${epassport.gender}"></td>
+           <td th:text="${epassport.state}"></td>
+           <td th:text="${epassport.city}"></td>
+           <td th:text="${epassport.pan}"></td>
+           <td th:text="${epassport.telephoneNumber}"></td>
+           <td th:text="${epassport.email}"></td>
+       </tr>
+    </tbody>
+    </thead>
+</table>
+</body>
+</html>
