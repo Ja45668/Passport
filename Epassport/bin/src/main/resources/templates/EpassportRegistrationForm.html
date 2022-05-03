@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>EPassport Registration</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
+</head>
+<body>
+
+<!-- Create HTML registration form -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+
+            <!-- success message -->
+            <div th:if="${param.success}">
+                <div class="alert alert-info">You've successfully registered!!!</div>
+            </div>
+            <br>
+            <br>
+            <div th:if="${errorMessage!=null}">
+                <div class="alert alert-info">[[${errorMessage}]]</div>
+            </div>
+            <h1>EPassport Registration</h1>
+
+            <form th:action="@{/save}" method="post" th:object="${epassport}">
+                <div class="form-group">
+                    <label class="control-label" for="firstName"> FirstName </label>
+                    <input id="firstName" class="form-control" th:field="*{firstName}"
+                           required autofocus="autofocus" />
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="lastName"> LastName </label>
+                    <input id="lastName" class="form-control" th:field="*{lastName}"
+                           required autofocus="autofocus" />
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="date"> DateOfBirth </label>
+                    <input id="date" type="date" class="form-control" th:field="*{date_of_birth}" required
+                           autofocus="autofocus" />
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="place"> PlaceOfBirth </label>
+                    <input id="place" class="form-control"
+                           th:field="*{place_of_birth}" required autofocus="autofocus" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label"> Gender </label>
+<!--                    <input id="department" class="form-control"-->
+<!--                           th:field="*{gender}" required autofocus="autofocus" />-->
+                    <select class="form-control" th:field="*{gender}">
+                        <option th:value="Male">Male</option>
+                        <option th:value="Female">Female</option>
+                    </select>
+
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="laptop"> State </label>
+                    <input id="laptop" class="form-control"
+                           th:field="*{state}" required autofocus="autofocus" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label"> District </label>
+                              <input id="role" class="form-control"
+                                     th:field="*{district}" required autofocus="autofocus" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label"> MaritalStatus </label>
+                    <input id="martialstatus" class="form-control"
+                           th:field="*{marital_status}" required autofocus="autofocus" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label"> PanNumber </label>
+                    <input id="pan" class="form-control"
+                           th:field="*{pan}" required autofocus="autofocus" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label"> EmploymentType </label>
+                    <input id="employmenttype" class="form-control"
+                           th:field="*{employmentType}" required autofocus="autofocus" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="educationalQualification"> EducationalQualification </label>
+                    <input id="educationalqualification" class="form-control"
+                           th:field="*{educationalQualification}" required autofocus="autofocus" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="fatherName"> FatherName </label>
+                    <input id="fatherName" class="form-control"
+                           th:field="*{fatherName}" required autofocus="autofocus" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="motherName"> MotherName </label>
+                    <input id="motherName" class="form-control"
+                           th:field="*{motherName}" required autofocus="autofocus" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="houseno"> HouseNo </label>
+                    <input id="houseno" class="form-control" type="number"
+                           th:field="*{houseNo}" required autofocus="autofocus" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="streetname"> StreetName </label>
+                    <input id="streetname" class="form-control"
+                           th:field="*{streetName}" required autofocus="autofocus" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="city"> City </label>
+                    <input id="city" class="form-control"
+                           th:field="*{city}" required autofocus="autofocus" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="pincode"> PinCode </label>
+                    <input id="pincode" class="form-control"
+                           th:field="*{pinCode}" required autofocus="autofocus" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="telephonenumber"> TelephoneNumber </label>
+                    <input id="telephonenumber" class="form-control"
+                           th:field="*{telephoneNumber}" required autofocus="autofocus" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="emailId"> EmailId </label>
+                    <input id="emailId" class="form-control"
+                           th:field="*{email}" required autofocus="autofocus" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="referenceName"> ReferenceName </label>
+                    <input id="referenceName" class="form-control"
+                           th:field="*{referenceName}" required autofocus="autofocus" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="address"> Address </label>
+                    <input id="address" class="form-control"
+                           th:field="*{address}" required autofocus="autofocus" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="referenceTelephoneNumber"> ReferenceTelephoneNumber </label>
+                    <input id="referenceTelephoneNumber" class="form-control"
+                           th:field="*{referenceTelephoneNumber}" required autofocus="autofocus" />
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success">Register</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
